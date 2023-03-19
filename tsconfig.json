@@ -5,7 +5,7 @@
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": false,
     "skipLibCheck": true,
-    "esModuleInterop": false,
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -14,8 +14,32 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "preserve",
+    "paths": {
+      "@components": ["./src/components"],
+      "@components/*": ["./src/components/*"],
+      "@modules": ["./src/modules"],
+      "@modules/*": ["./src/modules/*"],
+      "@assets": ["./src/assets"],
+      "@assets/*": ["./src/assets/*"],
+      "@pages": ["./src/pages"],
+      "@pages/*": ["./src/pages/*"],
+      "@schemas": ["./src/schemas"],
+      "@schemas/*": ["./src/schemas/*"],
+      "@hooks": ["./src/hooks"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@context": ["./src/context"],
+      "@context/*": ["./src/context/*"],
+      "@helpers": ["./src/helpers"],
+      "@helpers/*": ["./src/helpers/*"]
+    },
+    "incremental": true
   },
   "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "exclude": ["src/**/**/*.stories.tsx", "src/**/**/*.test.tsx", "src/**/**/*.test.ts"],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }
